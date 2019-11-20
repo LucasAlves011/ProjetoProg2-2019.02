@@ -10,7 +10,7 @@ public class Passageiro {
     private Passaporte passaporte;
     private Double saldo;
 
-    public Passageiro(String nome, LocalDate dataNascimento, Passaporte passaporte, Double saldo) {
+    public Passageiro(String nome, LocalDate dataNascimento, Passaporte passaporte, double saldo) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.passaporte = passaporte;
