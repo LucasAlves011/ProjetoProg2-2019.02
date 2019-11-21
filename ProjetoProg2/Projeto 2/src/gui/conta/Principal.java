@@ -34,7 +34,7 @@ public class Principal extends Application {
         Pane fxmlAdm =  FXMLLoader.load(getClass().getResource("TelaADM.fxml"));
         telaAdm = new Scene(fxmlAdm);
 
-		Pane fxmlcadastro = FXMLLoader.load(getClass().getResource("TelaDeCadastro.fxml"));
+		Pane fxmlcadastro = FXMLLoader.load(getClass().getResource("controller/TelaDeCadastro.fxml"));
 		telacadastro = new Scene(fxmlcadastro);
 
         primaryStage.setScene(telaLogin);
