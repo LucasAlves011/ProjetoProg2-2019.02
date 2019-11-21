@@ -1,7 +1,7 @@
 package beans;
 
 public enum Cidades {
-    MANAUS(6,34),RECIFE(17,18),BRASÍLIA(1,15),SAOPAULO(0,7),PORTOALEGRE(-8,4);
+    MANAUS(6,34),RECIFE(17,18),BRASILIA(1,15),SAOPAULO(0,7),PORTOALEGRE(-8,4);
 
     private int[] par = new int[2];
 

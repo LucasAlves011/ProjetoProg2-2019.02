@@ -1,12 +1,15 @@
 package gui.conta.controller;
 
 import beans.Administrador;
+import beans.Funcionario;
+import gui.conta.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import sun.applet.Main;
 
 public class LoginEditDialogController {
 
@@ -15,11 +18,13 @@ public class LoginEditDialogController {
 
     private Stage dialogStage;
     private Administrador adm;
+    private Funcionario func;
     private boolean okClicked =  false;
 
     @FXML
     private void initialize() {
-        adm = new Administrador("mec","mec");
+        adm = new Administrador("teteus","123");
+        func = new Funcionario("lucas","123");
     }
 
     public void setDialogStage(Stage dialogStage) {
@@ -47,12 +52,21 @@ public class LoginEditDialogController {
         if (isContaValida()) {
 
             if (klogin.equals(adm.getLogin()) && ksenha.equals(adm.getSenha()) )
+            {        
+            	Principal.changeScreen("adm");
                 System.out.println("Funcionou");
 //            adm.setLogin(tfLogin.getText());
 //            adm.setSenha(tfSenha.getText());
-            okClicked = true;
+                okClicked = true;
 //            dialogStage.close();
+            }
+            else if(klogin.equals(func.getLogin()) && ksenha.equals(func.getSenha()))
+            {
+            	Principal.changeScreen("func");
+            	okClicked = true;
 
+            }
+            
         }
     }
 

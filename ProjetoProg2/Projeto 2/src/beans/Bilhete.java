@@ -6,14 +6,22 @@ public class Bilhete {
     private Cidades destino;
     private Cidades localBilhete;
 
-    public Bilhete(double preco, Cadeira cadeira, Cidades destino) {
+    public Bilhete(double preco, Cadeira cadeira, Cidades destino,Cidades localBilhete) {
         this.preco = preco;
         this.cadeira = cadeira;
         this.destino = destino;
         this.localBilhete = localBilhete;
     }
 
-    public double getPreco() {
+    public Cidades getLocalBilhete() {
+		return localBilhete;
+	}
+
+	public void setLocalBilhete(Cidades localBilhete) {
+		this.localBilhete = localBilhete;
+	}
+
+	public double getPreco() {
         return preco;
     }
 
