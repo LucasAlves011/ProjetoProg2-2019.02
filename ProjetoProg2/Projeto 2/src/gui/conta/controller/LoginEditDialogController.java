@@ -6,6 +6,7 @@ import gui.conta.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -14,7 +15,8 @@ import sun.applet.Main;
 public class LoginEditDialogController {
 
     @FXML private TextField tfLogin;
-    @FXML private TextField tfSenha;
+    @FXML private PasswordField tfSenha;
+
 
     private Stage dialogStage;
     private Administrador adm;
