@@ -6,10 +6,10 @@ import java.time.LocalDate;
 public class Passageiro {
     private String nome;
     private LocalDate dataNascimento;
-    private Passaporte passaporte;
+    private String passaporte;
     private Double saldo;
 
-    public Passageiro(String nome, LocalDate dataNascimento, Passaporte passaporte, double saldo) {
+    public Passageiro(String nome, LocalDate dataNascimento, String passaporte) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.passaporte = passaporte;
@@ -32,13 +32,13 @@ public class Passageiro {
         this.dataNascimento = dataNascimento;
     }
 
-    public Passaporte getPassaporte() {
+    /*public Passaporte getPassaporte() {
         return passaporte;
     }
 
     public void setPassaporte(Passaporte passaporte) {
         this.passaporte = passaporte;
-    }
+    }*/
 
     public Double getSaldo() {
         return saldo;
