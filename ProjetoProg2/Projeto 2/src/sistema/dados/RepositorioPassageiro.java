@@ -8,7 +8,7 @@ public class RepositorioPassageiro {
 
     private static RepositorioPassageiro rp;
 
-    public RepositorioPassageiro getInstance () {
+    public static RepositorioPassageiro getInstance() {
         if (rp == null) {
             rp = new RepositorioPassageiro();
         }
@@ -20,6 +20,16 @@ public class RepositorioPassageiro {
     public void cadastrar(Passageiro p)
     {
         arrayPassageiros.add(p);
+    }
+
+    public boolean verificar(Passageiro p){
+        boolean retorno = false;
+        for(Passageiro f: rp.arrayPassageiros){
+            if(p.equals(f)){
+                retorno = true;
+            }
+        }
+        return retorno;
     }
 
     public void remover(Passageiro p)
