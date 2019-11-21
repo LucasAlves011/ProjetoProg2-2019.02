@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 
 public class Viagem {
-    private Cidades origem;
-    private Cidades destino;
+    private String origem;
+    private String destino;
     private double custoViagem;
     private LocalDate inicio;
     private LocalDate fim;
 
-    public Viagem(Cidades origem, Cidades destino, double custoViagem, LocalDate inicio, LocalDate fim) {
+    public Viagem(String origem, String destino, double custoViagem, LocalDate inicio, LocalDate fim) {
         this.origem = origem;
         this.destino = destino;
         this.custoViagem = custoViagem;
@@ -42,21 +42,30 @@ public class Viagem {
         this.fim = fim;
     }
 
-    public Cidades getOrigem() {
+    public String getOrigem() {
         return origem;
     }
 
-    public void setOrigem(Cidades origem) {
+    public void setOrigem(String origem) {
         this.origem = origem;
     }
 
-    public Cidades getDestino() {
+    public String getDestino() {
         return destino;
     }
 
-    public void setDestino(Cidades destino) {
+    public void setDestino(String destino) {
         this.destino = destino;
     }
 
-
+    @Override
+    public String toString() {
+        return "Viagem{" +
+                "origem='" + origem + '\'' +
+                ", destino='" + destino + '\'' +
+                ", custoViagem=" + custoViagem +
+                ", inicio=" + inicio +
+                ", fim=" + fim +
+                '}';
+    }
 }

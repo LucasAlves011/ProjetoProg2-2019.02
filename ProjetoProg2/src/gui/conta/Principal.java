@@ -16,6 +16,7 @@ public class Principal extends Application {
 	private static Scene telaFunc;
 	private static Scene telaAdm;
 	private static Scene telacadastro;
+	private static Scene telaviagem;
 
 	public static Stage getStage() {
 		return stage;
@@ -37,6 +38,9 @@ public class Principal extends Application {
 		Pane fxmlcadastro = FXMLLoader.load(getClass().getClassLoader().getResource("gui/conta/TelaDeCadastro.fxml"));
 		telacadastro = new Scene(fxmlcadastro);
 
+		Pane fxmlViagem = FXMLLoader.load(getClass().getClassLoader().getResource("gui/conta/Tela de viagem.fxml"));
+		telaviagem = new Scene(fxmlViagem);
+
         primaryStage.setScene(telaLogin);
         primaryStage.show();
     }
@@ -55,6 +59,8 @@ public class Principal extends Application {
 			break;
 			case "cadastro":
 				stage.setScene(telacadastro);
+			case "viagem":
+				stage.setScene(telaviagem);
 		default:
 			break;
 		}

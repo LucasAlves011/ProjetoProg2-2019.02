@@ -26,7 +26,7 @@ public class TelaADMController {
 	@FXML 
 	protected void btCadastrarViagens(ActionEvent e )
 	{
-		System.out.println("Metodo Cadastrar Viagens...");
+		Principal.changeScreen("viagem");
 	}
 	
 	@FXML 

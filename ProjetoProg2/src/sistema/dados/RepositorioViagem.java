@@ -9,7 +9,7 @@ public class RepositorioViagem {
 
     private static RepositorioViagem rv;
 
-    public RepositorioViagem getInstance () {
+    public static RepositorioViagem getInstance() {
         if (rv == null) {
             rv = new RepositorioViagem();
         }
