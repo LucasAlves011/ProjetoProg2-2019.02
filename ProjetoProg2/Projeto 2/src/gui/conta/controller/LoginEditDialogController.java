@@ -10,7 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import sun.applet.Main;
 
 public class LoginEditDialogController {
 
@@ -33,18 +32,10 @@ public class LoginEditDialogController {
         this.dialogStage = dialogStage;
     }
 
-//    public void setAdministrador()
-//    {
-//        adm = new Administrador("mec","mec");
-//        //        this.adm = administrador;
-////        tfLogin.setText(administrador.getLogin());
-////        tfSenha.setText(administrador.getSenha());
-//    }
-
-    public Boolean isOkClicked()
-    {
+    public Boolean isOkClicked(){
         return okClicked;
     }
+
     @FXML
     private void handleOk() {
         String klogin = tfLogin.getText();
@@ -57,28 +48,33 @@ public class LoginEditDialogController {
             {        
             	Principal.changeScreen("adm");
                 System.out.println("Funcionou");
-//            adm.setLogin(tfLogin.getText());
-//            adm.setSenha(tfSenha.getText());
                 okClicked = true;
-//            dialogStage.close();
             }
             else if(klogin.equals(func.getLogin()) && ksenha.equals(func.getSenha()))
             {
             	Principal.changeScreen("func");
             	okClicked = true;
 
+            }else {
+
+                // Apresenta mensagem de erro num alerta
+                Alert p = new Alert(AlertType.ERROR);
+                p.initOwner(dialogStage);
+                p.setTitle("Campos Inválidos");
+                p.setHeaderText("Por favor, corrija os valores informados.");
+
+                p.showAndWait();
             }
-            
         }
     }
 
+
     @FXML
     private void cancelar(ActionEvent ae) {
-        this.dialogStage.close();
+        Principal.getStage().close();
     }
 
-    private boolean isContaValida()
-    {
+    private boolean isContaValida(){
 
         if (tfLogin.getText() == null || tfSenha.getText() == null) {
             return false;

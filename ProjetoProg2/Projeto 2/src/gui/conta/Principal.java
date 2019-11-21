@@ -16,8 +16,11 @@ public class Principal extends Application {
 	private static Scene telaFunc;
 	private static Scene telaAdm;
 
-	
-    @Override
+	public static Stage getStage() {
+		return stage;
+	}
+
+	@Override
     public void start(Stage primaryStage) throws IOException {
     	
     	stage = primaryStage;
