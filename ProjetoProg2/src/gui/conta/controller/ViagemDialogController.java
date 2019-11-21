@@ -2,6 +2,7 @@ package gui.conta.controller;
 
 import beans.Passageiro;
 import beans.Viagem;
+import gui.conta.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -36,5 +37,11 @@ public class ViagemDialogController {
         Viagem v = new Viagem(origem, destino, 100, data, data2);
         cv.cadastrar(v);
         System.out.println("Viagem criada. Informações: " + v);
+    }
+
+    @FXML
+    protected void btVoltar(ActionEvent e)
+    {
+        Principal.changeScreen("adm");
     }
 }

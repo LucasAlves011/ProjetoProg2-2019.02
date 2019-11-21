@@ -2,6 +2,7 @@ package sistema.dados;
 
 import beans.Passageiro;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class RepositorioPassageiro {
@@ -14,12 +15,17 @@ public class RepositorioPassageiro {
         }
         return rp;
     }
-    public ArrayList<Passageiro> listar()
-    {
-        return arrayPassageiros;
-    }
 
     private ArrayList<Passageiro> arrayPassageiros =  new ArrayList<>();
+
+    public ArrayList<Passageiro> listar()
+    {
+            ArrayList<Passageiro> retorno = new ArrayList<>();
+            for (Passageiro e : arrayPassageiros) {
+                retorno.add(e);
+            }
+            return retorno;
+    }
 
     public void cadastrar(Passageiro p)
     {
@@ -27,13 +33,7 @@ public class RepositorioPassageiro {
     }
 
     public boolean verificar(Passageiro p){
-        boolean retorno = false;
-        for(Passageiro f: rp.arrayPassageiros){
-            if(p.equals(f)){
-                retorno = true;
-            }
-        }
-        return retorno;
+        return false;
     }
 
     public void remover(Passageiro p)

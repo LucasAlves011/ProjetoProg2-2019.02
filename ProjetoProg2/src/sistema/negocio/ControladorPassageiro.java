@@ -3,8 +3,10 @@ package sistema.negocio;
 import beans.Passageiro;
 import sistema.dados.RepositorioPassageiro;
 
+import java.util.ArrayList;
+
 public class ControladorPassageiro {
-    private RepositorioPassageiro rp = RepositorioPassageiro.getInstance();
+    private RepositorioPassageiro rp = new RepositorioPassageiro();
     private static ControladorPassageiro cp;
 
     public static ControladorPassageiro getInstance(){
@@ -25,12 +27,12 @@ public class ControladorPassageiro {
         }
     }
 
-    public boolean verificar(Passageiro p) {
-        return rp.verificar(p);
+    public ArrayList<Passageiro> listar() {
+        return rp.listar();
     }
 
-    public void comprarBilhete() {
-
+    public boolean verificar(Passageiro p) {
+        return rp.verificar(p);
     }
 
 

@@ -16,7 +16,7 @@
       <TextField fx:id="tfDestino" layoutX="236.0" layoutY="122.0" prefHeight="26.0" prefWidth="252.0" />
       <TextField fx:id="tfOrigem" layoutX="244.0" layoutY="85.0" prefHeight="26.0" prefWidth="236.0" />
       <Button layoutX="277.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
-      <Button layoutX="413.0" layoutY="334.0" mnemonicParsing="false" text="Voltar" />
+      <Button layoutX="413.0" layoutY="334.0" mnemonicParsing="false" onAction="#btVoltar" text="Voltar" />
       <Text layoutX="69.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de início" wrappingWidth="107.73046875" />
       <DatePicker fx:id="tfDatafim" layoutX="236.0" layoutY="256.0" prefHeight="31.0" prefWidth="252.0" />
    </children>

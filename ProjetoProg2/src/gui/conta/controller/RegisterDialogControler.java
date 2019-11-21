@@ -37,10 +37,7 @@ public class RegisterDialogControler {
         String passaporte = tfPassaporte.getText();
         Passageiro p = new Passageiro(username,data,passaporte);
         cp.cadastrar(p);
-        if (cp.verificar(p)) {
-            System.out.println("Usuario cadastrado");
-            okClicked = true;
-        }
+        System.out.println("Usuario cadastrado! " + p);
     }
 
     @FXML
