@@ -35,8 +35,8 @@ public class TelaVenderBilheteController {
 
     public void setPassageiro(Passageiro p) {
         this.passageiro = p;
-        tfNome.setText(p.getNome());;
-        tfPassaporte.setText(p.getPassaporte());;
+        tfNome.setText(p.getNome());
+        tfPassaporte.setText(p.getPassaporte());
     }
 
     @FXML
