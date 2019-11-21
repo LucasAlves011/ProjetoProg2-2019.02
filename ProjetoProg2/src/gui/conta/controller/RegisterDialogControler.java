@@ -1,6 +1,7 @@
 package gui.conta.controller;
 
 import beans.Passageiro;
+import gui.conta.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -11,6 +12,11 @@ import sistema.negocio.ControladorPassageiro;
 import java.time.LocalDate;
 
 public class RegisterDialogControler {
+
+    @FXML
+    private void btVoltar(ActionEvent e){
+        Principal.changeScreen("func");
+    }
     @FXML
     private DatePicker tfData;
     @FXML

@@ -14,6 +14,10 @@ public class RepositorioPassageiro {
         }
         return rp;
     }
+    public ArrayList<Passageiro> listar()
+    {
+        return arrayPassageiros;
+    }
 
     private ArrayList<Passageiro> arrayPassageiros =  new ArrayList<>();
 

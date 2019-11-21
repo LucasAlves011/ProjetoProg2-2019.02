@@ -7,13 +7,11 @@ public class Passageiro {
     private String nome;
     private LocalDate dataNascimento;
     private String passaporte;
-    private Double saldo;
 
     public Passageiro(String nome, LocalDate dataNascimento, String passaporte) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.passaporte = passaporte;
-        this.saldo = saldo;
     }
 
     public String getNome() {
@@ -32,21 +30,15 @@ public class Passageiro {
         this.dataNascimento = dataNascimento;
     }
 
-    /*public Passaporte getPassaporte() {
+    public String getPassaporte() {
         return passaporte;
     }
 
-    public void setPassaporte(Passaporte passaporte) {
+    public void setPassaporte(String passaporte) {
         this.passaporte = passaporte;
-    }*/
-
-    public Double getSaldo() {
-        return saldo;
     }
 
-    public void setSaldo(Double saldo) {
-        this.saldo = saldo;
-    }
+
 
     @Override
     public String toString() {

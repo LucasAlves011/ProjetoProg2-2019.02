@@ -20,8 +20,10 @@ public class TelaFUNCController {
 	}
 	@FXML 
 	protected void btVenderBilhetes(ActionEvent e)
+
 	{
 		System.out.println("Metodo Vender Bilhetes...");
+		Principal.changeScreen("vender");
 	}
 	
 	@FXML 
