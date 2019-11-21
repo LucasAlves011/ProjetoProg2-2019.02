@@ -4,24 +4,18 @@ import java.time.LocalDate;
 
 
 public class Viagem {
-    private Rotas rota;
+    private Cidades origem;
+    private Cidades destino;
     private double custoViagem;
     private LocalDate inicio;
     private LocalDate fim;
 
-    public Viagem(Rotas rota, double custoViagem, LocalDate inicio, LocalDate fim) {
-        this.rota = rota;
+    public Viagem(Cidades origem, Cidades destino, double custoViagem, LocalDate inicio, LocalDate fim) {
+        this.origem = origem;
+        this.destino = destino;
         this.custoViagem = custoViagem;
         this.inicio = inicio;
         this.fim = fim;
-    }
-
-    public Rotas getRota() {
-        return rota;
-    }
-
-    public void setRota(Rotas rota) {
-        this.rota = rota;
     }
 
     public double getCustoViagem() {
@@ -48,7 +42,21 @@ public class Viagem {
         this.fim = fim;
     }
 
-    
-    
-    
+    public Cidades getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(Cidades origem) {
+        this.origem = origem;
+    }
+
+    public Cidades getDestino() {
+        return destino;
+    }
+
+    public void setDestino(Cidades destino) {
+        this.destino = destino;
+    }
+
+
 }
