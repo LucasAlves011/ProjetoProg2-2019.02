@@ -9,6 +9,7 @@ public class TelaFUNCController {
 	@FXML 
 	protected void btCadastrar(ActionEvent e)
 	{
+		Principal.changeScreen("cadastro");
 		System.out.println("Metodo cadastrar...");
 	}
 	
