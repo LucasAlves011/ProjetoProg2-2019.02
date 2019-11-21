@@ -11,9 +11,5 @@ public class ViagemDialogController {
     private DatePicker tfData;
     @FXML
     private TextField tfOrigem;
-    @FXML
-    private TextField tfNome;
-    private ControladorPassageiro cp = ControladorPassageiro.getInstance();
-    private Stage dialogStage;
-    private boolean okClicked =  false;
+
 }
