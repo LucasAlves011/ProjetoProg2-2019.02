@@ -17,6 +17,7 @@ public class TelaFUNCController {
 	protected void btVerRotas(ActionEvent e)
 	{
 		System.out.println("Metodo Ver rotas...");
+		Principal.changeScreen("verRotas");
 	}
 	@FXML 
 	protected void btVenderBilhetes(ActionEvent e)

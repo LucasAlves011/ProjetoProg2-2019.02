@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.conta.controller.VerRotasController">
+   <children>
+      <Text layoutX="203.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELA  VER ROTAS">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <TextArea layoutX="29.0" layoutY="35.0" prefHeight="127.0" prefWidth="157.0" text="MAPA:&#10;">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextArea>
+      <Text layoutX="77.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destino:" />
+      <ChoiceBox layoutX="150.0" layoutY="172.0" prefWidth="150.0" />
+      <Text layoutX="456.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opções Disponíveis:" />
+      <TableView fx:id="tabela" layoutX="321.0" layoutY="115.0" prefHeight="139.0" prefWidth="271.0">
+        <columns>
+          <TableColumn fx:id="atributo1Col" prefWidth="169.0" text="Rotas" />
+          <TableColumn fx:id="atributo2Col" prefWidth="101.0" text="Preços" />
+        </columns>
+      </TableView>
+      <Button layoutX="371.0" layoutY="329.0" mnemonicParsing="false" onAction="#btVoltar" text="Voltar" />
+      <Button layoutX="215.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleOk" text="Ok" />
+      <Text layoutX="77.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alguem ajeita isso " />
+   </children>
+</Pane>

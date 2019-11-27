@@ -1,7 +1,11 @@
 package sistema.negocio;
 
 import beans.Viagem;
+import gui.conta.controller.VerRotasController;
 import sistema.dados.RepositorioViagem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorViagem {
     private RepositorioViagem rv = RepositorioViagem.getInstance();
@@ -24,5 +28,7 @@ public class ControladorViagem {
         }
     }
 
-
+    public List<Viagem> listar() {
+        return rv.listar();
+    }
 }
