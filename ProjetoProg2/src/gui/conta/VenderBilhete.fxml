@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.conta.controller.ControllerTable">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.conta.controller.ControllerTable">
    <children>
       <Text layoutX="222.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELA VENDER BILHETES" />
       <TableView fx:id="tabela" layoutX="27.0" layoutY="61.0" prefHeight="200.0" prefWidth="546.0">
@@ -16,11 +16,10 @@
           <TableColumn fx:id="passaporteCol" prefWidth="243.0" text="PASSAPORTE" />
         </columns>
       </TableView>
-      <Button layoutX="500.0" layoutY="346.0" mnemonicParsing="false" text="Confirmar" />
-      <Button layoutX="411.0" layoutY="346.0" mnemonicParsing="false" onAction="#btVoltar" prefHeight="31.0" prefWidth="70.0" text="Voltar" />
-      <ChoiceBox layoutX="222.0" layoutY="311.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="46.0" layoutY="311.0" prefWidth="150.0" />
-      <Text layoutX="94.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destino:" />
-      <Text layoutX="231.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opções Disponíveis:" />
+      <Button layoutX="382.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="31.0" prefWidth="90.0" text="Confirmar" />
+      <Button layoutX="503.0" layoutY="343.0" mnemonicParsing="false" onAction="#btVoltar" prefHeight="31.0" prefWidth="70.0" text="Voltar" />
+      <ChoiceBox fx:id="viagens" layoutX="46.0" layoutY="299.0" prefHeight="25.0" prefWidth="254.0" />
+      <Text layoutX="46.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Viagens Disponíveis:" />
+      <Button layoutX="46.0" layoutY="343.0" mnemonicParsing="false" onAction="#atualizar" prefHeight="31.0" prefWidth="142.0" text="Atualizar Tabela" />
    </children>
 </Pane>

@@ -23,6 +23,8 @@ public class RegisterDialogControler {
     private TextField tfPassaporte;
     @FXML
     private TextField tfNome;
+
+
     private ControladorPassageiro cp = ControladorPassageiro.getInstance();
     private Stage dialogStage;
     private boolean okClicked =  false;

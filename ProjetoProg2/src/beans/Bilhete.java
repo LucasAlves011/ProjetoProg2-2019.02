@@ -2,22 +2,22 @@ package beans;
 
 public class Bilhete {
     private double preco;
-    private Cadeira cadeira;
-    private Cidades destino;
-    private Cidades localBilhete;
+    private int cadeira;
+    private String destino;
+    private String localBilhete;
 
-    public Bilhete(double preco, Cadeira cadeira, Cidades destino,Cidades localBilhete) {
+    public Bilhete(double preco, int cadeira, String destino, String localBilhete) {
         this.preco = preco;
         this.cadeira = cadeira;
         this.destino = destino;
         this.localBilhete = localBilhete;
     }
 
-    public Cidades getLocalBilhete() {
+    public String getLocalBilhete() {
 		return localBilhete;
 	}
 
-	public void setLocalBilhete(Cidades localBilhete) {
+	public void setLocalBilhete(String localBilhete) {
 		this.localBilhete = localBilhete;
 	}
 
@@ -29,20 +29,20 @@ public class Bilhete {
         this.preco = preco;
     }
 
-    public Cadeira getCadeira() {
+    public int getCadeira() {
         return cadeira;
     }
 
-    public void setCadeira(Cadeira cadeira) {
+    public void setCadeira(int cadeira) {
         this.cadeira = cadeira;
     }
 
 
-    public Cidades getDestino() {
+    public String getDestino() {
         return destino;
     }
 
-    public void setDestino(Cidades destino) {
+    public void setDestino(String destino) {
         this.destino = destino;
     }
 

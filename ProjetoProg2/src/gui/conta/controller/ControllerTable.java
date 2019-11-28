@@ -1,6 +1,9 @@
 package gui.conta.controller;
 
+import beans.Bilhete;
 import beans.Passageiro;
+import beans.Viagem;
+import com.sun.deploy.util.ArrayUtil;
 import com.sun.security.ntlm.Client;
 import gui.conta.Principal;
 import javafx.beans.Observable;
@@ -10,17 +13,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sistema.dados.RepositorioPassageiro;
 import sistema.negocio.ControladorPassageiro;
+import sistema.negocio.ControladorViagem;
 
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerTable implements Initializable {
@@ -33,7 +36,7 @@ public class ControllerTable implements Initializable {
 
     private boolean okClicked =  false;
     public void handleOk(ActionEvent event) {
-        Cliente contaSelecionada = tabela.getSelectionModel().getSelectedItem();
+        Passageiro contaSelecionada = tabela.getSelectionModel().getSelectedItem();
         int indiceSelecionado = tabela.getSelectionModel().getSelectedIndex();
         venderBilhete(contaSelecionada);
         okClicked = true;
@@ -41,70 +44,63 @@ public class ControllerTable implements Initializable {
             Principal.changeScreen("bilhete");
     }
 
-    private void venderBilhete(Cliente contaSelecionada) {
-        System.out.println("Bilhete vendido!!, bom viagem");
-
-
+    private void venderBilhete(Passageiro contaSelecionada) {
+        Viagem viagemSelecionada = viagens.getSelectionModel().getSelectedItem();
+        if (viagemSelecionada == null) {
+            System.out.println("Selecione uma viagem.");
+        }
+        else {
+            Bilhete b = new Bilhete(viagemSelecionada.getCustoViagem(), 1, viagemSelecionada.getDestino(), viagemSelecionada.getOrigem());
+            contaSelecionada.adicionarBilhete(b);
+            System.out.println("O passageiro " + contaSelecionada.getNome() + " comprou o bilhete para " + b.getDestino());
+        }
     }
 
     private ControladorPassageiro cp = ControladorPassageiro.getInstance();
-    @FXML
-    private TableView<Cliente> tabela;
+    private ControladorViagem cv = ControladorViagem.getInstance();
 
     @FXML
-    private TableColumn<Cliente,String> nomeCol;
+    private TableView<Passageiro> tabela;
 
     @FXML
-    private TableColumn<Cliente,String> passaporteCol;
+    private TableColumn<Passageiro,String> nomeCol;
 
-    private ObservableList<Cliente> listaDeClientes() {
-        ArrayList<Passageiro> passageiros = cp.listar();
-        ArrayList<Cliente> clientes = new ArrayList<>();
-        for (Passageiro e : passageiros) {
-            Cliente c = new Cliente(e.getNome(), e.getPassaporte());
-            clientes.add(c);
-        }
-        return FXCollections.observableArrayList(clientes);
+    @FXML
+    private TableColumn<Passageiro,String> passaporteCol;
+
+    @FXML
+    private ChoiceBox<Viagem> viagens = new ChoiceBox<>();
+
+    @FXML
+    public List<Passageiro> listarTodos() {
+        return cp.listar();
+    }
+
+    public List<Viagem> listarViagens() {
+        return cv.listar();
+    }
+
+
+
+    private ObservableList<Passageiro> listaDeClientes() {
+        return FXCollections.observableArrayList(listarTodos());
     }
         @Override
         public void initialize(URL location, ResourceBundle resources) {
-        nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        passaporteCol.setCellValueFactory(new PropertyValueFactory<>("passaporte"));
-
-        tabela.setItems(listaDeClientes());
+        nomeCol.setCellValueFactory(new PropertyValueFactory<Passageiro, String>("nome"));
+        passaporteCol.setCellValueFactory(new PropertyValueFactory<Passageiro, String>("passaporte"));
+        atualizar();
     }
-        public static class Cliente {
 
-            private final SimpleStringProperty nome;
-            private final SimpleStringProperty passaporte;
-
-            public Cliente(String nome,String passaporte)
-            {
-                this.nome = new SimpleStringProperty(nome);
-                this.passaporte = new SimpleStringProperty(passaporte);
-            }
-
-            public String getNome() {
-                return nome.get();
-            }
-            public SimpleStringProperty nomeProperty() {
-                return nome;
-            }
-            public void setNome(String nome) {
-                this.nome.set(nome);
-            }
-            public String getPassaporte() {
-                return passaporte.get();
-            }
-
-            public SimpleStringProperty passaporteProperty() {
-                return passaporte;
-            }
-
-            public void setPassaporte(String passaporte) {
-                this.nome.set(passaporte);
-            }
+    public void atualizar() {
+        tabela.getItems().setAll(listarTodos());
+        ArrayList<Viagem> a = new ArrayList<>();
+        for (Viagem e : listarViagens()){
+            a.add(e);
         }
+        ObservableList<Viagem> lista = FXCollections.observableArrayList(a);
+        viagens.setItems(lista);
 
+    }
 
     }

@@ -1,7 +1,6 @@
 package sistema.negocio;
 
 import beans.Viagem;
-import gui.conta.controller.VerRotasController;
 import sistema.dados.RepositorioViagem;
 
 import java.util.ArrayList;

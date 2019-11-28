@@ -4,6 +4,7 @@ import beans.Passageiro;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RepositorioPassageiro {
 
@@ -18,9 +19,9 @@ public class RepositorioPassageiro {
 
     private ArrayList<Passageiro> arrayPassageiros =  new ArrayList<>();
 
-    public ArrayList<Passageiro> listar()
+    public List<Passageiro> listar()
     {
-            ArrayList<Passageiro> retorno = new ArrayList<>();
+            List<Passageiro> retorno = new ArrayList<>();
             for (Passageiro e : arrayPassageiros) {
                 retorno.add(e);
             }

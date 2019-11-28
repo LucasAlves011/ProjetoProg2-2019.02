@@ -1,12 +1,14 @@
 package beans;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 public class Passageiro {
     private String nome;
     private LocalDate dataNascimento;
     private String passaporte;
+    private ArrayList<Bilhete> bilhetes = new ArrayList<>();
 
     public Passageiro(String nome, LocalDate dataNascimento, String passaporte) {
         this.nome = nome;
@@ -38,7 +40,13 @@ public class Passageiro {
         this.passaporte = passaporte;
     }
 
+    public ArrayList<Bilhete> getBilhetes() {
+        return bilhetes;
+    }
 
+    public void adicionarBilhete (Bilhete bilhete){
+        this.bilhetes.add(bilhete);
+    }
 
     @Override
     public String toString() {

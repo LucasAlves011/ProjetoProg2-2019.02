@@ -60,12 +60,6 @@ public class Viagem {
 
     @Override
     public String toString() {
-        return "Viagem{" +
-                "origem='" + origem + '\'' +
-                ", destino='" + destino + '\'' +
-                ", custoViagem=" + custoViagem +
-                ", inicio=" + inicio +
-                ", fim=" + fim +
-                '}';
+        return "De " + getOrigem() + " até " + getDestino();
     }
 }

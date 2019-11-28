@@ -4,6 +4,7 @@ import beans.Passageiro;
 import sistema.dados.RepositorioPassageiro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorPassageiro {
     private RepositorioPassageiro rp = new RepositorioPassageiro();
@@ -27,7 +28,7 @@ public class ControladorPassageiro {
         }
     }
 
-    public ArrayList<Passageiro> listar() {
+    public List<Passageiro> listar() {
         return rp.listar();
     }
 

@@ -22,10 +22,10 @@ public class RepositorioViagem {
     }
 
     public List<Viagem> listar() {
-        List<Viagem> viagens = new ArrayList<>();
+        List<Viagem> listaViagens = new ArrayList<>();
         for(Viagem f: viagens){
-            viagens.add(f);
+            listaViagens.add(f);
         }
-        return viagens;
+        return listaViagens;
     }
 }
