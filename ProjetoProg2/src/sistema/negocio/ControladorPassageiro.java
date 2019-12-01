@@ -29,6 +29,7 @@ public class ControladorPassageiro {
     }
 
     public List<Passageiro> listar() {
+
         return rp.listar();
     }
 

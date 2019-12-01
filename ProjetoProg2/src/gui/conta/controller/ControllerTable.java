@@ -17,6 +17,10 @@ import sistema.dados.RepositorioPassageiro;
 import sistema.negocio.ControladorPassageiro;
 import sistema.negocio.ControladorViagem;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.time.LocalDate;
@@ -25,6 +29,15 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerTable implements Initializable {
+
+    private static ControllerTable ct;
+
+    public static ControllerTable getInstance(){
+        if(ct==null){
+            ct = new ControllerTable();
+        }
+        return ct;
+    }
 
 
     @FXML
@@ -57,6 +70,8 @@ public class ControllerTable implements Initializable {
     private ControladorPassageiro cp = ControladorPassageiro.getInstance();
     private ControladorViagem cv = ControladorViagem.getInstance();
 
+
+
     @FXML
     private TableView<Passageiro> tabela;
 
@@ -85,6 +100,7 @@ public class ControllerTable implements Initializable {
     }
         @Override
         public void initialize(URL location, ResourceBundle resources) {
+        lerArquivo();
         nomeCol.setCellValueFactory(new PropertyValueFactory<Passageiro, String>("nome"));
         passaporteCol.setCellValueFactory(new PropertyValueFactory<Passageiro, String>("passaporte"));
         atualizar();
@@ -98,6 +114,26 @@ public class ControllerTable implements Initializable {
         }
         ObservableList<Viagem> lista = FXCollections.observableArrayList(a);
         viagens.setItems(lista);
+
+    }
+
+    public void lerArquivo(){
+        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\gui\\conta\\controller\\passageirosFile";
+        String linha = "";
+        String virgula = ",";
+
+        try {
+            BufferedReader content = new BufferedReader(new FileReader(Arquivo));
+            while((linha = content.readLine())!=null){
+                String [] atributo = linha.split(virgula);
+                Passageiro p = new Passageiro(atributo[0],atributo[1]);
+                cp.cadastrar(p);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

@@ -27,8 +27,8 @@
             </ContextMenu>
          </contextMenu>
       </TextArea>
-      <Text layoutX="77.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destino:" />
-      <ChoiceBox layoutX="150.0" layoutY="172.0" prefWidth="150.0" />
+      <Text layoutX="193.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destino" />
+      <ChoiceBox layoutX="33.0" layoutY="172.0" prefWidth="150.0" />
       <Text layoutX="456.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opções Disponíveis:" />
       <TableView fx:id="tabela" layoutX="321.0" layoutY="115.0" prefHeight="139.0" prefWidth="271.0">
         <columns>
@@ -38,6 +38,5 @@
       </TableView>
       <Button layoutX="371.0" layoutY="329.0" mnemonicParsing="false" onAction="#btVoltar" text="Voltar" />
       <Button layoutX="215.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleOk" text="Ok" />
-      <Text layoutX="77.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alguem ajeita isso " />
    </children>
 </Pane>

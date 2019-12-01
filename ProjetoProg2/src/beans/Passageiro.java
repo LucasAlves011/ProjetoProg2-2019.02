@@ -16,6 +16,11 @@ public class Passageiro {
         this.passaporte = passaporte;
     }
 
+    public Passageiro(String nome,String passaporte) {
+        this.nome = nome;
+        this.passaporte = passaporte;
+    }
+
     public String getNome() {
         return nome;
     }
