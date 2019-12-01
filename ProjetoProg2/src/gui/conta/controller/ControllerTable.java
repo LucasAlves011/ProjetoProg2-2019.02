@@ -4,8 +4,6 @@ import beans.Bilhete;
 import beans.Passageiro;
 import beans.Viagem;
 import gui.conta.Principal;
-import javafx.beans.Observable;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sistema.dados.RepositorioPassageiro;
 import sistema.negocio.ControladorPassageiro;
 import sistema.negocio.ControladorViagem;
 
@@ -21,9 +18,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -118,7 +113,7 @@ public class ControllerTable implements Initializable {
     }
 
     public void lerArquivo(){
-        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\gui\\conta\\controller\\passageirosFile";
+        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
         String linha = "";
         String virgula = ",";
 
@@ -127,7 +122,9 @@ public class ControllerTable implements Initializable {
             while((linha = content.readLine())!=null){
                 String [] atributo = linha.split(virgula);
                 Passageiro p = new Passageiro(atributo[0],atributo[1]);
-                cp.cadastrar(p);
+                if(!cp.verificarPassaporte(p)) {
+                    cp.cadastrar(p);
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -15,7 +15,6 @@ import sistema.negocio.ControladorPassageiro;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class LoginEditDialogController {
@@ -84,7 +83,9 @@ public class LoginEditDialogController {
     @FXML
     private void cancelar(ActionEvent ae) {
         escreverArquivo();
+        fecharArquivo();
         Principal.getStage().close();
+
     }
 
     private boolean isContaValida(){
@@ -118,19 +119,35 @@ public class LoginEditDialogController {
         }
     }
 
+    public void fecharArquivo(){
+        try {
+            Escritor.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
+    BufferedWriter Escritor;
+
+    {
+        try {
+            Escritor = new BufferedWriter(new FileWriter(Arquivo,true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void escreverArquivo(){
-        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\gui\\conta\\controller\\passageirosFile";
         List<Passageiro> passageirosLista = new ArrayList<>();
         System.out.println(""+cp.listar());
         passageirosLista.addAll(cp.listar());
         try {
-            BufferedWriter Escritor = new BufferedWriter(new FileWriter(Arquivo));
             for(Passageiro f: passageirosLista){
                 String p = f.getNome()+","+f.getPassaporte();
-                System.out.println(""+p);
-
-                Escritor.write(p);
-                Escritor.close();
+                        Escritor.flush();
+                        Escritor.newLine();
+                        Escritor.write(p);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -139,5 +156,7 @@ public class LoginEditDialogController {
         }
 
     }
+
+
 
 }

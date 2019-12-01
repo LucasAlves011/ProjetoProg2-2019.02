@@ -33,6 +33,10 @@ public class ControladorPassageiro {
         return rp.listar();
     }
 
+    public boolean verificarPassaporte(Passageiro p) {
+        return rp.verificarPassaporte(p);
+    }
+
     public boolean verificar(Passageiro p) {
         return rp.verificar(p);
     }

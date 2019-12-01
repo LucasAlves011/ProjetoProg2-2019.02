@@ -1,6 +1,7 @@
 package beans;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 
@@ -51,6 +52,12 @@ public class Passageiro {
 
     public void adicionarBilhete (Bilhete bilhete){
         this.bilhetes.add(bilhete);
+    }
+
+    public String getIdade(){
+        int idadeInt = Period.between(this.dataNascimento,LocalDate.now()).getYears();
+        String idade = Integer.toString(idadeInt);
+        return idade;
     }
 
     @Override

@@ -41,6 +41,16 @@ public class RepositorioPassageiro {
         return false;
     }
 
+    public boolean verificarPassaporte(Passageiro p){
+        boolean retorno = false;
+        for(Passageiro f: arrayPassageiros){
+            if(f.getPassaporte().equals(p.getPassaporte())){
+                retorno = true;
+            }
+        }
+        return retorno;
+    }
+
     public void remover(Passageiro p)
     {
         arrayPassageiros.remove(p);
