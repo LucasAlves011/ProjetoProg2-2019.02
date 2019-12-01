@@ -4,10 +4,15 @@ import java.io.IOException;
 
 import beans.Administrador;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 public class Principal extends Application {
 	
@@ -18,7 +23,7 @@ public class Principal extends Application {
 	private static Scene telacadastro;
 	private static Scene telaviagem;
 	private static Scene telaVender;
-	private static Scene telaVerRotas;
+	private static Scene telaBilhete;
 
 
 	public static Stage getStage() {
@@ -27,7 +32,14 @@ public class Principal extends Application {
 
 	@Override
     public void start(Stage primaryStage) throws IOException {
-    	
+		
+//		Image image =  new Image("file:LOGO.png");
+//		ImageView iv =  new ImageView();
+//		iv.setImage(image);
+//		iv.setFitHeight(180);
+//		iv.setFitWidth(160);
+//		iv.setPreserveRatio(false);
+		
     	stage = primaryStage;
         Pane fxmlLogin =  FXMLLoader.load(getClass().getResource("FXMLTela.fxml"));
         telaLogin = new Scene(fxmlLogin);
@@ -46,7 +58,11 @@ public class Principal extends Application {
 
 		Pane fxmlVender = FXMLLoader.load(getClass().getClassLoader().getResource("gui/conta/VenderBilhete.fxml"));
 		telaVender = new Scene(fxmlVender);
-
+		
+		Pane fxmlBilhete = FXMLLoader.load(getClass().getClassLoader().getResource("gui/conta/BilheteFinal.fxml"));
+		telaBilhete = new Scene(fxmlBilhete);
+		//fxmlBilhete.getChildren().add(iv);
+		
 		primaryStage.setScene(telaLogin);
         primaryStage.show();
     }
@@ -73,8 +89,8 @@ public class Principal extends Application {
 			case "vender":
 				stage.setScene(telaVender);
 				break;
-			case"verRotas":
-				stage.setScene(telaVerRotas);
+			case "bilhete":
+				stage.setScene(telaBilhete);
 				break;
 				default:
 			break;

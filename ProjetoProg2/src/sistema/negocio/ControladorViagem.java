@@ -22,7 +22,8 @@ public class ControladorViagem {
             // exception de viagem nula
         }
         else {
-            // receber informacao de viagem (atributos de viagem)
+        	//TODO: fazer com que n cadastre a msm viagem
+
             rv.cadastrar(v);
         }
     }

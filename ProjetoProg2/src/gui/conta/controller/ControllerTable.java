@@ -3,8 +3,6 @@ package gui.conta.controller;
 import beans.Bilhete;
 import beans.Passageiro;
 import beans.Viagem;
-import com.sun.deploy.util.ArrayUtil;
-import com.sun.security.ntlm.Client;
 import gui.conta.Principal;
 import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;

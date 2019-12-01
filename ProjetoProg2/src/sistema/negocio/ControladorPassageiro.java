@@ -23,8 +23,8 @@ public class ControladorPassageiro {
             //TODO exce��o de Passageiro nulo
         }
         else {
-            //TODO receber informa��es do passageiro
-            rp.cadastrar(p);
+        	//TODO: fazer com que n cadastre o msm usuario
+        	rp.cadastrar(p);
         }
     }
 

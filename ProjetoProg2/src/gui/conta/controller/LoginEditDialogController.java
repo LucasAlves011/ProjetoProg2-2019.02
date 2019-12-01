@@ -24,8 +24,8 @@ public class LoginEditDialogController {
 
     @FXML
     private void initialize() {
-        adm = new Administrador("teteus","123");
-        func = new Funcionario("lucas","123");
+        adm = new Administrador("adm","123");
+        func = new Funcionario("func","123");
     }
 
     public void setDialogStage(Stage dialogStage) {
@@ -41,7 +41,6 @@ public class LoginEditDialogController {
         String klogin = tfLogin.getText();
         String ksenha = tfSenha.getText();
 
-        // so seta a conta se a mesma estiver valida
         if (isContaValida()) {
 
             if (klogin.equals(adm.getLogin()) && ksenha.equals(adm.getSenha()) )
@@ -57,13 +56,12 @@ public class LoginEditDialogController {
 
             }else {
 
-                // Apresenta mensagem de erro num alerta
-                Alert p = new Alert(AlertType.ERROR);
-                p.initOwner(dialogStage);
-                p.setTitle("Campos InvÃ¡lidos");
-                p.setHeaderText("Por favor, corrija os valores informados.");
+                Alert a = new Alert(AlertType.ERROR);
+                a.initOwner(dialogStage);
+                a.setTitle("Campos Inválidos");
+                a.setHeaderText("Por favor, corrija os valores informados.");
 
-                p.showAndWait();
+                a.showAndWait();
             }
         }
     }
@@ -83,20 +81,19 @@ public class LoginEditDialogController {
         String msgErro = "";
 
         if ( tfLogin.getText().length() == 0) {
-            msgErro += "Login invÃ¡lido!\n";
+            msgErro += "Login inválido!\n";
         }
         if ( tfSenha.getText().length() == 0) {
-            msgErro += "Senha invÃ¡lida!\n";
+            msgErro += "Senha inválida!\n";
         }
 
         if (msgErro.length() == 0) {
             return true;
         } else {
 
-            // Apresenta mensagem de erro num alerta
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Campos InvÃ¡lidos");
+            alert.setTitle("Campos Inválidos");
             alert.setHeaderText("Por favor, corrija os valores informados.");
             alert.setContentText(msgErro);
 
