@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.conta.controller.Registro">
+   <children>
+      <Text layoutX="264.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="371.0" layoutY="329.0" mnemonicParsing="false" onAction="#btVoltar" text="Voltar" />
+      <TableView fx:id="tblViagem" layoutX="20.0" layoutY="80.0" prefHeight="194.0" prefWidth="561.0">
+        <columns>
+          <TableColumn fx:id="clDestino" prefWidth="137.0" text="Destino da viagem" />
+          <TableColumn fx:id="clOrigem" minWidth="3.0" prefWidth="122.0" text="Origem da viagem" />
+            <TableColumn fx:id="clData" minWidth="5.0" prefWidth="135.0" text="Data de partida" />
+            <TableColumn fx:id="clAssentos" prefWidth="166.0" text="Assentos ocupados" />
+        </columns>
+      </TableView>
+      <Button layoutX="209.0" layoutY="329.0" mnemonicParsing="false" onAction="#atualizar" text="At" />
+   </children>
+</Pane>

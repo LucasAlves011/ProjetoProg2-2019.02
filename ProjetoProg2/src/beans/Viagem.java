@@ -1,6 +1,7 @@
 package beans;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class Viagem {
@@ -26,8 +27,10 @@ public class Viagem {
         this.custoViagem = custoViagem;
     }
 
-    public LocalDate getInicio() {
-        return inicio;
+    public String getInicio() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String formatada = this.inicio.format(formatter);
+        return formatada;
     }
 
     public void setInicio(LocalDate inicio) {

@@ -13,9 +13,9 @@ public class TelaADMController {
 	}
 	
 	@FXML 
-	protected void btVerInformacoes(ActionEvent e)
+	protected void btRegistro(ActionEvent e)
 	{
-		System.out.println("Metodo Ver Informacoes...");
+		Principal.changeScreen("registro");
 	}
 	@FXML 
 	protected void btMostrarLucros(ActionEvent e)
