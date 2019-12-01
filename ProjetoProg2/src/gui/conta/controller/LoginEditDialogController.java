@@ -2,6 +2,7 @@ package gui.conta.controller;
 
 import beans.Administrador;
 import beans.Funcionario;
+import beans.Passageiro;
 import gui.conta.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,17 +11,30 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import sistema.negocio.ControladorPassageiro;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class LoginEditDialogController {
 
     @FXML private TextField tfLogin;
     @FXML private PasswordField tfSenha;
+    private ControladorPassageiro cp = ControladorPassageiro.getInstance();
 
 
     private Stage dialogStage;
     private Administrador adm;
     private Funcionario func;
     private boolean okClicked =  false;
+
+    @FXML
+    public List<Passageiro> listarTodos() {
+        return cp.listar();
+    }
+
 
     @FXML
     private void initialize() {
@@ -58,7 +72,7 @@ public class LoginEditDialogController {
 
                 Alert a = new Alert(AlertType.ERROR);
                 a.initOwner(dialogStage);
-                a.setTitle("Campos Inválidos");
+                a.setTitle("Campos Invï¿½lidos");
                 a.setHeaderText("Por favor, corrija os valores informados.");
 
                 a.showAndWait();
@@ -69,6 +83,7 @@ public class LoginEditDialogController {
 
     @FXML
     private void cancelar(ActionEvent ae) {
+        escreverArquivo();
         Principal.getStage().close();
     }
 
@@ -81,10 +96,10 @@ public class LoginEditDialogController {
         String msgErro = "";
 
         if ( tfLogin.getText().length() == 0) {
-            msgErro += "Login inválido!\n";
+            msgErro += "Login invï¿½lido!\n";
         }
         if ( tfSenha.getText().length() == 0) {
-            msgErro += "Senha inválida!\n";
+            msgErro += "Senha invï¿½lida!\n";
         }
 
         if (msgErro.length() == 0) {
@@ -93,7 +108,7 @@ public class LoginEditDialogController {
 
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Campos Inválidos");
+            alert.setTitle("Campos Invï¿½lidos");
             alert.setHeaderText("Por favor, corrija os valores informados.");
             alert.setContentText(msgErro);
 
@@ -102,4 +117,27 @@ public class LoginEditDialogController {
             return false;
         }
     }
+
+    public void escreverArquivo(){
+        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\gui\\conta\\controller\\passageirosFile";
+        List<Passageiro> passageirosLista = new ArrayList<>();
+        System.out.println(""+cp.listar());
+        passageirosLista.addAll(cp.listar());
+        try {
+            BufferedWriter Escritor = new BufferedWriter(new FileWriter(Arquivo));
+            for(Passageiro f: passageirosLista){
+                String p = f.getNome()+","+f.getPassaporte();
+                System.out.println(""+p);
+
+                Escritor.write(p);
+                Escritor.close();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

@@ -17,7 +17,11 @@ public class RepositorioPassageiro {
         return rp;
     }
 
-    private ArrayList<Passageiro> arrayPassageiros =  new ArrayList<>();
+    public RepositorioPassageiro() {
+        this.arrayPassageiros = new ArrayList<>();
+    }
+
+    private ArrayList<Passageiro> arrayPassageiros;
 
     public List<Passageiro> listar()
     {
