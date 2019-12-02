@@ -96,6 +96,7 @@ public class ControllerTable implements Initializable {
         @Override
         public void initialize(URL location, ResourceBundle resources) {
         lerArquivo();
+        lerArquivoViagem();
         nomeCol.setCellValueFactory(new PropertyValueFactory<Passageiro, String>("nome"));
         passaporteCol.setCellValueFactory(new PropertyValueFactory<Passageiro, String>("passaporte"));
         atualizar();
@@ -131,6 +132,27 @@ public class ControllerTable implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void lerArquivoViagem(){
+        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
+        String linha = "";
+        String virgula = ",";
+
+        try {
+            BufferedReader content = new BufferedReader(new FileReader(Arquivo));
+            while((linha = content.readLine())!=null){
+                String [] atributo = linha.split(virgula);
+                Viagem v = new Viagem(atributo[0],atributo[1]);
+                cv.cadastrar(v);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

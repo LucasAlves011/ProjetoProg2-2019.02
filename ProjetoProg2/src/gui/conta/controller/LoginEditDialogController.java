@@ -3,6 +3,7 @@ package gui.conta.controller;
 import beans.Administrador;
 import beans.Funcionario;
 import beans.Passageiro;
+import beans.Viagem;
 import gui.conta.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import sistema.negocio.ControladorPassageiro;
+import sistema.negocio.ControladorViagem;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public class LoginEditDialogController {
     @FXML private TextField tfLogin;
     @FXML private PasswordField tfSenha;
     private ControladorPassageiro cp = ControladorPassageiro.getInstance();
-
+    private ControladorViagem cv = ControladorViagem.getInstance();
 
     private Stage dialogStage;
     private Administrador adm;
@@ -82,7 +84,9 @@ public class LoginEditDialogController {
 
     @FXML
     private void cancelar(ActionEvent ae) {
+        escreverArquivoViagem();
         escreverArquivo();
+        fecharArquivoViagem();
         fecharArquivo();
         Principal.getStage().close();
 
@@ -127,12 +131,30 @@ public class LoginEditDialogController {
         }
     }
 
+    public void fecharArquivoViagem(){
+        try{
+            EscritorViagem.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
     BufferedWriter Escritor;
-
     {
         try {
             Escritor = new BufferedWriter(new FileWriter(Arquivo,true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    String arquivoViagem = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
+    BufferedWriter EscritorViagem;
+    {
+        try {
+            EscritorViagem = new BufferedWriter(new FileWriter(arquivoViagem,true));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -148,6 +170,25 @@ public class LoginEditDialogController {
                         Escritor.flush();
                         Escritor.newLine();
                         Escritor.write(p);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void escreverArquivoViagem(){
+        List<Viagem> viagensLista = new ArrayList<>();
+        System.out.println(""+cv.listar());
+        viagensLista.addAll(cv.listar());
+        try {
+            for(Viagem f: viagensLista){
+                String p = f.getOrigem()+","+f.getDestino();
+                EscritorViagem.flush();
+                EscritorViagem.newLine();
+                EscritorViagem.write(p);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

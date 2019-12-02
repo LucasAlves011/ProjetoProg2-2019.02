@@ -19,6 +19,12 @@ public class Viagem {
         this.fim = fim;
     }
 
+    public Viagem(String origem, String destino){
+        this.origem = origem;
+        this.destino = destino;
+
+    }
+
     public double getCustoViagem() {
         return custoViagem;
     }
