@@ -28,4 +28,15 @@ public class RepositorioViagem {
         }
         return listaViagens;
     }
+
+    public boolean verificarViagem(Viagem v){
+        boolean retorno = false;
+        for(Viagem f: viagens){
+            if(v.getOrigem().equals(f.getOrigem()) && v.getDestino().equals(f.getDestino())){
+                retorno = true;
+            }
+        }
+        return retorno;
+    }
+
 }

@@ -145,7 +145,9 @@ public class ControllerTable implements Initializable {
             while((linha = content.readLine())!=null){
                 String [] atributo = linha.split(virgula);
                 Viagem v = new Viagem(atributo[0],atributo[1],atributo[2],atributo[3]);
-                cv.cadastrar(v);
+                if(!cv.verificarViagem(v)) {
+                    cv.cadastrar(v);
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

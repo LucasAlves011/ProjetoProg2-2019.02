@@ -31,4 +31,8 @@ public class ControladorViagem {
     public List<Viagem> listar() {
         return rv.listar();
     }
+
+    public boolean verificarViagem(Viagem v) {
+        return rv.verificarViagem(v);
+    }
 }
