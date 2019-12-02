@@ -8,11 +8,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import sistema.dados.ViagensFachada;
 import sistema.negocio.ControladorViagem;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -20,8 +25,36 @@ import java.util.ResourceBundle;
 
 public class Registro implements Initializable {
     private final ControladorViagem cv = new ControladorViagem();
+    private static Registro reg;
+
+    public static Registro getInstance() {
+        if(reg == null){
+            reg = new Registro();
+        }
+        return reg;
+    }
 
     private boolean okClicked =  false;
+
+    @FXML
+    void botaoOk(ActionEvent evento) {
+        try {
+            if (!ViagensFachada.getInstance().listar().isEmpty()) {
+                ViagensFachada.getInstance().descriar();
+            }
+            Viagem viagem = tblViagem.getSelectionModel().getSelectedItem();
+            ViagensFachada.getInstance().criar(viagem);
+            FXMLLoader fxmlLoader = new FXMLLoader(Registro.class.getResource("PassageirosEmViagem.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Nova janela");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private TableView<Viagem> tblViagem;
@@ -49,7 +82,6 @@ public class Registro implements Initializable {
         clOrigem.setCellValueFactory(new PropertyValueFactory<Viagem, String>("origem"));
         clData.setCellValueFactory(new PropertyValueFactory<Viagem, String>("inicio"));
         clAssentos.setCellValueFactory(new PropertyValueFactory<Viagem, String>("assento"));
-
         tblViagem.getItems().setAll(listarViagens());
         data = FXCollections.observableArrayList();
         data.addAll(listarViagens());
@@ -64,4 +96,5 @@ public class Registro implements Initializable {
     private List<Viagem> listarViagens() {
         return cv.listar();
     }
+
 }

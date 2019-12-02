@@ -19,6 +19,7 @@ public class TelaFUNCController {
 	{
 		System.out.println("Metodo Vender Bilhetes...");
 		Principal.changeScreen("vender");
+		ControllerTable.getInstance().atualizar();
 	}
 	
 	@FXML 

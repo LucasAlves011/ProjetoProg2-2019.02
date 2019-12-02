@@ -14,7 +14,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Button layoutX="371.0" layoutY="329.0" mnemonicParsing="false" onAction="#btVoltar" text="Voltar" />
+      <Button layoutX="476.0" layoutY="327.0" mnemonicParsing="false" onAction="#btVoltar" prefHeight="33.0" prefWidth="80.0" text="Voltar" />
       <TableView fx:id="tblViagem" layoutX="20.0" layoutY="80.0" prefHeight="194.0" prefWidth="561.0">
         <columns>
           <TableColumn fx:id="clDestino" prefWidth="137.0" text="Destino da viagem" />
@@ -23,6 +23,7 @@
             <TableColumn fx:id="clAssentos" prefWidth="166.0" text="Assentos ocupados" />
         </columns>
       </TableView>
-      <Button layoutX="209.0" layoutY="329.0" mnemonicParsing="false" onAction="#atualizar" text="At" />
+      <Button layoutX="20.0" layoutY="327.0" mnemonicParsing="false" onAction="#atualizar" prefHeight="33.0" prefWidth="106.0" text="Atualizar" />
+      <Button layoutX="158.0" layoutY="327.0" mnemonicParsing="false" onAction="#botaoOk" prefHeight="33.0" prefWidth="106.0" text="Confirmar" />
    </children>
 </Pane>

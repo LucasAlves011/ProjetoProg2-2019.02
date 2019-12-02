@@ -9,15 +9,17 @@ public class Passageiro {
     private String nome;
     private LocalDate dataNascimento;
     private String passaporte;
+    private String idade;
     private ArrayList<Bilhete> bilhetes = new ArrayList<>();
 
     public Passageiro(String nome, LocalDate dataNascimento, String passaporte) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.passaporte = passaporte;
+        setIdade();
     }
 
-    public Passageiro(String nome,String passaporte) {
+    public Passageiro(String nome,String passaporte, String idade) {
         this.nome = nome;
         this.passaporte = passaporte;
     }
@@ -54,9 +56,13 @@ public class Passageiro {
         this.bilhetes.add(bilhete);
     }
 
-    public String getIdade(){
-        int idadeInt = Period.between(this.dataNascimento,LocalDate.now()).getYears();
+    public void setIdade() {
+        int idadeInt = Period.between(this.dataNascimento, LocalDate.now()).getYears();
         String idade = Integer.toString(idadeInt);
+        this.idade = idade;
+    }
+
+    public String getIdade() {
         return idade;
     }
 

@@ -40,13 +40,13 @@ public class ViagemDialogController {
         if(isViagemValida())
         {        
         	cv.cadastrar(v);
-        	System.out.println("Viagem criada. Informações: " + v);
+        	System.out.println("Viagem criada. Informaï¿½ï¿½es: " + v);
         	Principal.changeScreen("adm");
         }else {
 
             Alert a = new Alert(AlertType.ERROR);
             a.initOwner(dialogStage);
-            a.setTitle("Campos Inválidos");
+            a.setTitle("Campos Invï¿½lidos");
             a.setHeaderText("Por favor, corrija os valores informados.");
 
             a.showAndWait();
@@ -63,16 +63,16 @@ public class ViagemDialogController {
         String msgErro = "";
 
         if ( tfOrigem.getText().length() == 0) {
-            msgErro += "Texto inválido!\n";
+            msgErro += "Texto invï¿½lido!\n";
         }
         if ( tfDestino.getText().length() == 0) {
-            msgErro += "Texto inválido!\n";
+            msgErro += "Texto invï¿½lido!\n";
         }
         if(tfDatafim.getValue() == null) {
-        	msgErro += "Data inválida!\n";
+        	msgErro += "Data invï¿½lida!\n";
         }
         if(tfDatainicio.getValue() == null) {
-        	msgErro += "Data inválida!\n";
+        	msgErro += "Data invï¿½lida!\n";
         }
         
         
@@ -82,7 +82,7 @@ public class ViagemDialogController {
         } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Campos Inválidos");
+            alert.setTitle("Campos Invï¿½lidos");
             alert.setHeaderText("Por favor, corrija os valores informados.");
             alert.setContentText(msgErro);
 

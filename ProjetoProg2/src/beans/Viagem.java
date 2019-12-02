@@ -2,6 +2,7 @@ package beans;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -11,6 +12,15 @@ public class Viagem {
     private double custoViagem;
     private LocalDate inicio;
     private LocalDate fim;
+    private ArrayList<Passageiro> passageiros = new ArrayList<>();
+
+    public ArrayList<Passageiro> getPassageiros() {
+        return passageiros;
+    }
+
+    public void adicionar(Passageiro passageiro) {
+        this.passageiros.add(passageiro);
+    }
 
     public Viagem(String origem, String destino, double custoViagem, LocalDate inicio, LocalDate fim) {
         this.origem = origem;

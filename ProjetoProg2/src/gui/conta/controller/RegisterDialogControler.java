@@ -43,12 +43,12 @@ public class RegisterDialogControler {
         if(isPassageiroValido())
         {
         	cp.cadastrar(p);
-        	System.out.println("Usuario cadastrado! " + p);	
+        	System.out.println("Usuario cadastrado! " + p);
         }else {
 
             Alert a = new Alert(AlertType.ERROR);
             a.initOwner(dialogStage);
-            a.setTitle("Campos Inválidos");
+            a.setTitle("Campos Invï¿½lidos");
             a.setHeaderText("Por favor, corrija os valores informados.");
 
             a.showAndWait();
@@ -64,20 +64,20 @@ public class RegisterDialogControler {
         String msgErro = "";
 
         if ( tfNome.getText().length() == 0) {
-            msgErro += "Texto inválido!\n";
+            msgErro += "Texto invï¿½lido!\n";
         }
         if ( tfPassaporte.getText().length() == 0) {
-            msgErro += "Texto inválido!\n";
+            msgErro += "Texto invï¿½lido!\n";
         }
         if(tfData.getValue() == null) {
-        	msgErro += "Data inválida!\n";
+        	msgErro += "Data invï¿½lida!\n";
         }
         if (msgErro.length() == 0) {
             return true;
         } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Campos Inválidos");
+            alert.setTitle("Campos Invï¿½lidos");
             alert.setHeaderText("Por favor, corrija os valores informados.");
             alert.setContentText(msgErro);
 

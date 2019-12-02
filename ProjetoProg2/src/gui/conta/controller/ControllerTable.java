@@ -58,8 +58,10 @@ public class ControllerTable implements Initializable {
         else {
             Bilhete b = new Bilhete(viagemSelecionada.getCustoViagem(), 1, viagemSelecionada.getDestino(), viagemSelecionada.getOrigem());
             contaSelecionada.adicionarBilhete(b);
+            viagemSelecionada.adicionar(contaSelecionada);
             System.out.println("O passageiro " + contaSelecionada.getNome() + " comprou o bilhete para " + b.getDestino());
         }
+        atualizar();
     }
 
     private ControladorPassageiro cp = ControladorPassageiro.getInstance();
@@ -114,7 +116,7 @@ public class ControllerTable implements Initializable {
     }
 
     public void lerArquivo(){
-        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
+        String Arquivo = "C:\\Users\\Ed\\Desktop\\projeto definitivo\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
         String linha = "";
         String virgula = ",";
 
@@ -122,7 +124,7 @@ public class ControllerTable implements Initializable {
             BufferedReader content = new BufferedReader(new FileReader(Arquivo));
             while((linha = content.readLine())!=null){
                 String [] atributo = linha.split(virgula);
-                Passageiro p = new Passageiro(atributo[0],atributo[1]);
+                Passageiro p = new Passageiro(atributo[0],atributo[1], atributo[2]);
                 if(!cp.verificarPassaporte(p)) {
                     cp.cadastrar(p);
                 }
@@ -136,7 +138,7 @@ public class ControllerTable implements Initializable {
     }
 
     public void lerArquivoViagem(){
-        String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
+        String Arquivo = "C:\\Users\\Ed\\Desktop\\projeto definitivo\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
         String linha = "";
         String virgula = ",";
 

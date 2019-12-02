@@ -140,7 +140,7 @@ public class LoginEditDialogController {
         }
     }
 
-    String Arquivo = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
+    String Arquivo = "C:\\Users\\Ed\\Desktop\\projeto definitivo\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
     BufferedWriter Escritor;
     {
         try {
@@ -150,7 +150,7 @@ public class LoginEditDialogController {
         }
     }
 
-    String arquivoViagem = "C:\\Users\\Paulo\\Desktop\\ProjetoProg2-2019.02\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
+    String arquivoViagem = "C:\\Users\\Ed\\Desktop\\projeto definitivo\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
     BufferedWriter EscritorViagem;
     {
         try {
@@ -166,7 +166,7 @@ public class LoginEditDialogController {
         passageirosLista.addAll(cp.listar());
         try {
             for(Passageiro f: passageirosLista){
-                String p = f.getNome()+","+f.getPassaporte();
+                String p = f.getNome()+","+f.getPassaporte()+","+f.getIdade();
                         Escritor.flush();
                         Escritor.newLine();
                         Escritor.write(p);
