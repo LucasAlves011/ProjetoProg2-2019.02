@@ -2,6 +2,7 @@ package beans;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 
 public class Viagem {
@@ -36,6 +37,12 @@ public class Viagem {
     public String getInicio() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
         String formatada = this.inicio.format(formatter);
+        return formatada;
+    }
+
+    public String getFimString(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String formatada = this.fim.format(formatter);
         return formatada;
     }
 

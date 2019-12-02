@@ -185,7 +185,7 @@ public class LoginEditDialogController {
         viagensLista.addAll(cv.listar());
         try {
             for(Viagem f: viagensLista){
-                String p = f.getOrigem()+","+f.getDestino();
+                String p = f.getOrigem()+","+f.getDestino()+","+f.getInicio()+","+f.getFimString();
                 EscritorViagem.flush();
                 EscritorViagem.newLine();
                 EscritorViagem.write(p);
