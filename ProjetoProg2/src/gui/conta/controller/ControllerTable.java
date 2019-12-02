@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 public class ControllerTable implements Initializable {
 
     private static ControllerTable ct;
+    public static Viagem viagemConsulta;
 
     public static ControllerTable getInstance(){
         if(ct==null){
@@ -47,7 +48,8 @@ public class ControllerTable implements Initializable {
         venderBilhete(contaSelecionada);
         okClicked = true;
         if(okClicked == true)
-            Principal.changeScreen("bilhete");
+//            Principal.changeScreen("bilhete");
+            Principal.changeScreen("poltrona");
     }
 
     private void venderBilhete(Passageiro contaSelecionada) {
@@ -59,6 +61,7 @@ public class ControllerTable implements Initializable {
             Bilhete b = new Bilhete(viagemSelecionada.getCustoViagem(), 1, viagemSelecionada.getDestino(), viagemSelecionada.getOrigem());
             contaSelecionada.adicionarBilhete(b);
             viagemSelecionada.adicionar(contaSelecionada);
+            viagemConsulta = viagemSelecionada;
             System.out.println("O passageiro " + contaSelecionada.getNome() + " comprou o bilhete para " + b.getDestino());
         }
         atualizar();
@@ -116,7 +119,7 @@ public class ControllerTable implements Initializable {
     }
 
     public void lerArquivo(){
-        String Arquivo = "C:\\Users\\Ed\\Desktop\\projeto definitivo\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
+        String Arquivo = "C:\\Users\\mrosi\\IdeaProjects\\ProjetoProg2-2019.02ads1\\ProjetoProg2\\src\\sistema\\file\\passageirosFile";
         String linha = "";
         String virgula = ",";
 
@@ -138,7 +141,7 @@ public class ControllerTable implements Initializable {
     }
 
     public void lerArquivoViagem(){
-        String Arquivo = "C:\\Users\\Ed\\Desktop\\projeto definitivo\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
+        String Arquivo = "C:\\Users\\mrosi\\IdeaProjects\\ProjetoProg2-2019.02ads1\\ProjetoProg2\\src\\sistema\\file\\viagensFile";
         String linha = "";
         String virgula = ",";
 

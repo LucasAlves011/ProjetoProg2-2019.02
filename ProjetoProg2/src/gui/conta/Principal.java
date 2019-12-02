@@ -3,9 +3,11 @@ package gui.conta;
 import java.io.IOException;
 
 import beans.Administrador;
+import gui.conta.controller.ContolePoltrona;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -25,6 +27,7 @@ public class Principal extends Application {
 	private static Scene telaVender;
 	private static Scene telaBilhete;
 	private static Scene telaRegistro;
+	private static Scene telaPoltrona;
 
 
 	public static Stage getStage() {
@@ -66,7 +69,10 @@ public class Principal extends Application {
 
 		Pane fxmlRegistro = FXMLLoader.load(getClass().getClassLoader().getResource("gui/conta/Registro.fxml"));
 		telaRegistro = new Scene(fxmlRegistro);
-		
+
+		AnchorPane fxmlPoltrona = FXMLLoader.load(getClass().getResource("/gui/conta/controller/PoltronaFxml.fxml"));
+		telaPoltrona = new Scene(fxmlPoltrona);
+
 		primaryStage.setScene(telaLogin);
         primaryStage.show();
     }
@@ -98,8 +104,11 @@ public class Principal extends Application {
 				break;
 			case "registro":
 				stage.setScene(telaRegistro);
-				default:
-			break;
+				break;
+			case "poltrona":
+				stage.setScene(telaPoltrona);
+				break;
+			default:
 		}
     }
     public static void main(String[] args) {

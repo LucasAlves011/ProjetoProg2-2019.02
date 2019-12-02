@@ -13,6 +13,7 @@ public class Viagem {
     private LocalDate inicio;
     private LocalDate fim;
     private ArrayList<Passageiro> passageiros = new ArrayList<>();
+    private Cadeira[] cadeiras;
 
     public ArrayList<Passageiro> getPassageiros() {
         return passageiros;
@@ -28,6 +29,7 @@ public class Viagem {
         this.custoViagem = custoViagem;
         this.inicio = inicio;
         this.fim = fim;
+        fazer();
     }
 
     public Viagem(String origem, String destino,String inicio,String fim){
@@ -36,6 +38,52 @@ public class Viagem {
         this.destino = destino;
         this.inicio = LocalDate.parse(inicio,formatter);
         this.fim = LocalDate.parse(fim,formatter);
+        fazer();
+    }
+
+    private void fazer(){
+        cadeiras = new Cadeira[104];
+        Cadeira aux;
+        int k = 1;
+        String x;
+        char carac = 'A';
+
+        for (int i = 0; i < 104 ; i++) {
+            x = carac +""+k;
+            cadeiras[i] = new Cadeira(x);
+            if (k%4==0){
+                k=0;
+                carac++;
+            }
+            k++;
+        }
+        /*
+         Poltrona x ;
+        int k = 1;
+        String aux ;
+        char carac = 'A';
+        for (int i = 0; i < 104 ; i++) {
+            aux = carac +""+k;
+            if (i%3 ==0) {
+                x = new Poltrona(aux, false);
+            }
+            else {
+                x = new Poltrona(aux, true);
+            }
+
+            if (k%4 == 0) {
+                k=0;
+                carac++;
+            }
+            k++;
+            repositorio.adicionar(x);
+        }
+         */
+
+    }
+
+    public Cadeira[] getCadeiras() {
+        return cadeiras;
     }
 
     public double getCustoViagem() {

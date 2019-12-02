@@ -1,20 +1,20 @@
 package beans;
 
 public class Cadeira {
-    private Passageiro passageiro;
     private String poltrona;
+    private boolean ocupada;
 
-    public Cadeira(Passageiro passageiro, String poltrona) {
-        this.passageiro = passageiro;
+    public Cadeira( String poltrona) {
         this.poltrona = poltrona;
+        ocupada = false;
     }
 
-    public Passageiro getPassageiro() {
-        return passageiro;
+    public boolean isOcupada() {
+        return ocupada;
     }
 
-    public void setPassageiro(Passageiro passageiro) {
-        this.passageiro = passageiro;
+    public void setOcupada(boolean ocupada) {
+        this.ocupada = ocupada;
     }
 
     public String getPoltrona() {
