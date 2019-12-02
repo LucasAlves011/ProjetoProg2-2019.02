@@ -43,11 +43,7 @@ public class ContolePoltrona implements Initializable  {
                     cadeiraSelec.setText(q.getText());
                 }
             }
-//            for (Poltrona iterador:x.listar()) {
-//                if (iterador.getNome().equals(q.getText()) && !iterador.isOcupada()){
-//                    cadeiraSelec.setText(q.getText());
-//                }
-//            }
+
         }
     }
 
@@ -116,8 +112,8 @@ public class ContolePoltrona implements Initializable  {
             System.out.println("Entrou");
 
         }
-        else
-            System.out.println("caiu aqui");
+
+//            System.out.println("caiu aqui");
     }
 }
 

@@ -1,20 +1,13 @@
 package gui.conta;
 
-import java.io.IOException;
-
-import beans.Administrador;
-import gui.conta.controller.ContolePoltrona;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Principal extends Application {
 	
@@ -65,14 +58,13 @@ public class Principal extends Application {
 		
 		Pane fxmlBilhete = FXMLLoader.load(getClass().getClassLoader().getResource("gui/conta/BilheteFinal.fxml"));
 		telaBilhete = new Scene(fxmlBilhete);
-		//fxmlBilhete.getChildren().add(iv);
-
+//		fxmlFunc.getChildren().add(iv);
 		Pane fxmlRegistro = FXMLLoader.load(getClass().getClassLoader().getResource("gui/conta/Registro.fxml"));
 		telaRegistro = new Scene(fxmlRegistro);
 
 		AnchorPane fxmlPoltrona = FXMLLoader.load(getClass().getResource("/gui/conta/controller/PoltronaFxml.fxml"));
 		telaPoltrona = new Scene(fxmlPoltrona);
-
+		primaryStage.setResizable(false);
 		primaryStage.setScene(telaLogin);
         primaryStage.show();
     }

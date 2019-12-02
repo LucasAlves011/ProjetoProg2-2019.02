@@ -39,9 +39,9 @@ public class RegisterDialogControler {
         String username = tfNome.getText();
         LocalDate data = tfData.getValue();
         String passaporte = tfPassaporte.getText();
-        Passageiro p = new Passageiro(username,data,passaporte);
         if(isPassageiroValido())
         {
+            Passageiro p = new Passageiro(username,data,passaporte);
         	cp.cadastrar(p);
         	System.out.println("Usuario cadastrado! " + p);
         }else {

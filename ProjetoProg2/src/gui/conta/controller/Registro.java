@@ -81,7 +81,6 @@ public class Registro implements Initializable {
         clDestino.setCellValueFactory(new PropertyValueFactory<Viagem, String>("destino"));
         clOrigem.setCellValueFactory(new PropertyValueFactory<Viagem, String>("origem"));
         clData.setCellValueFactory(new PropertyValueFactory<Viagem, String>("inicio"));
-        clAssentos.setCellValueFactory(new PropertyValueFactory<Viagem, String>("assento"));
         tblViagem.getItems().setAll(listarViagens());
         data = FXCollections.observableArrayList();
         data.addAll(listarViagens());
