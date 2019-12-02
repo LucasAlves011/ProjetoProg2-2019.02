@@ -20,10 +20,12 @@ public class Viagem {
         this.fim = fim;
     }
 
-    public Viagem(String origem, String destino){
+    public Viagem(String origem, String destino,String inicio,String fim){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
         this.origem = origem;
         this.destino = destino;
-
+        this.inicio = LocalDate.parse(inicio,formatter);
+        this.fim = LocalDate.parse(fim,formatter);
     }
 
     public double getCustoViagem() {
